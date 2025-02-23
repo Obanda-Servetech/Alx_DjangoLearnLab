@@ -60,5 +60,28 @@ def save_user_profile(sender, instance, **kwargs):
 
 ["class UserProfile(models.Model):", "Admin", "Member"]
 
+# Extending the Book Model with Custom Permissions
+from django.db import models
+
+class Author(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add a book"),
+            ("can_change_book", "Can edit a book"),
+            ("can_delete_book", "Can delete a book"),
+        ]
+
+    def __str__(self):
+        return self.title
+
 
 
