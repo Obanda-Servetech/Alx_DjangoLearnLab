@@ -47,6 +47,9 @@ def register_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
+["from django.contrib.auth.forms import UserCreationForm"]
+
+
 
 
 
