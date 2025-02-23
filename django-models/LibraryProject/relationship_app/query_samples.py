@@ -32,3 +32,4 @@ if __name__ == "__main__":
     list_books_in_library("Library Name")
     get_librarian_for_library("Library Name")
     ["Author.objects.get(name=author_name)", "objects.filter(author=author)"]
+    ["Librarian.objects.get(library="]
