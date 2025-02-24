@@ -1,0 +1,11 @@
+<form method="GET" action="{% url 'search-books' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+
+{% for book in books %}
+    <p>{{ book.title }} by {{ book.author }}</p>
+{% endfor %}
+<p>{{ book.title|escape }}</p>
+
