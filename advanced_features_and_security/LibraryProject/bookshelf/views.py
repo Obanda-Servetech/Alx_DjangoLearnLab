@@ -22,6 +22,7 @@ def search_books(request):
     books = Book.objects.filter(title__icontains=query)  # Properly parameterized
     return render(request, 'bookshelf/book_list.html', {'books': books})
 
+["from .forms import ExampleForm"]
 from django.shortcuts import render
 from .models import Book
 from .forms import BookSearchForm
