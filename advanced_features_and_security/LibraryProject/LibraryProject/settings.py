@@ -126,3 +126,40 @@ LOGIN_REDIRECT_URL = 'list_books'
 LOGOUT_REDIRECT_URL = 'login'
 AUTH_USER_MODEL = "accounts.CustomUser"
 ["bookshelf.CustomUser"]
+# settings.py
+
+import os
+
+# Ensure DEBUG is False in production
+DEBUG = False
+
+# Security settings
+SECURE_BROWSER_XSS_FILTER = True  # Protects against XSS attacks
+X_FRAME_OPTIONS = 'DENY'  # Prevents clickjacking attacks
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevents MIME type sniffing
+
+# Ensure CSRF and session cookies are only sent over HTTPS
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# Set secure HSTS headers (forces HTTPS)
+SECURE_HSTS_SECONDS = 31536000  # One year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Content Security Policy (CSP) - Can be further customized
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
+
+# Allowed hosts - adjust for your environment
+ALLOWED_HOSTS = ['yourdomain.com', 'localhost']
+
+INSTALLED_APPS += ['csp']
+
+MIDDLEWARE += ['csp.middleware.CSPMiddleware']
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
+

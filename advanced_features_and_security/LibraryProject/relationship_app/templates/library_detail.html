@@ -14,3 +14,9 @@
     </ul>
 </body>
 </html>
+<form method="POST" action="{% url 'book-create' %}">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" required>
+    <button type="submit">Submit</button>
+</form>
