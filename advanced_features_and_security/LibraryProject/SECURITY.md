@@ -15,3 +15,21 @@
 ## 4. Content Security Policy (CSP)
 - `django-csp` middleware enabled
 - Restricts loading of scripts and styles from external sources
+
+# Security Configuration for LibraryProject
+
+## HTTPS Enforcement
+- All HTTP requests are redirected to HTTPS (`SECURE_SSL_REDIRECT = True`).
+- HTTP Strict Transport Security (HSTS) is enabled for 1 year (`SECURE_HSTS_SECONDS = 31536000`).
+
+## Secure Cookies
+- `SESSION_COOKIE_SECURE` and `CSRF_COOKIE_SECURE` ensure that cookies are transmitted only over HTTPS.
+
+## Security Headers
+- `X_FRAME_OPTIONS = "DENY"` prevents clickjacking.
+- `SECURE_CONTENT_TYPE_NOSNIFF = True` protects against MIME-type sniffing.
+- `SECURE_BROWSER_XSS_FILTER = True` enables built-in browser XSS protection.
+
+## Deployment
+- HTTPS enabled via Let’s Encrypt SSL on Nginx.
+- All non-HTTPS traffic is permanently redirected.
