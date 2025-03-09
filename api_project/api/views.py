@@ -8,3 +8,4 @@ from .serializers import BookSerializer
 class BookList(ListAPIView):
     queryset = Book.objects.all()  # Fetch all books from the database
     serializer_class = BookSerializer
+["generics.ListAPIView"]
