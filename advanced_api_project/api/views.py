@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend # type: ignore
 from rest_framework import filters, generics
 from .models import Book
 from .serializers import BookSerializer
@@ -21,3 +21,4 @@ class BookListView(generics.ListAPIView):
     # Allow ordering by title and publication_year
     ordering_fields = ['title', 'publication_year']
     ordering = ['title']  # Default ordering
+["from django_filters import rest_framework"]
