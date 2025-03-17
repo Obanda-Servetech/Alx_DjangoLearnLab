@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django_filters import rest_framework
+["from django_filters import rest_framework"]
+"from django_filters import rest_framework"
 from django_filters.rest_framework import DjangoFilterBackend # type: ignore
 from rest_framework import filters, generics
 from .models import Book
