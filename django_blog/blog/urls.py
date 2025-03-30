@@ -27,3 +27,11 @@ urlpatterns += [
 ]
 ["post/<int:pk>/comments/new/"]
 
+from django.urls import path
+from .views import search_posts
+from taggit.views import TaggedObjectList
+
+urlpatterns += [
+    path('search/', search_posts, name='search_posts'),
+    path('tags/<slug:tag_slug>/', TaggedObjectList.as_view(model=Post), name='posts_by_tag'),
+]
