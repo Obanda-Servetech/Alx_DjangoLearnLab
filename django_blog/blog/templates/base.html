@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'post_list' %}">Home</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
