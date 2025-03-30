@@ -18,4 +18,12 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
 ]
 
+from django.urls import path
+from .views import add_comment, CommentUpdateView, CommentDeleteView
+
+urlpatterns += [
+    path('post/<int:pk>/comment/new/', add_comment, name='add_comment'),
+    path('comment/<int:pk>/update/', CommentUpdateView.as_view(), name='comment_update'),
+    path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
+]
 
